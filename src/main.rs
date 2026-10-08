@@ -32,5 +32,13 @@ fn main() -> std::io::Result<()> {
 
     println!("Initializing project structure in: {}/", project_name);
 
+    // Create directories
+    for dir in directories {
+        fs::create_dir_all(&dir)?;
+        println!(" Created: {}", dir.display());
+    }
+
+    // Generate default README file
+
     Ok(())
 }
