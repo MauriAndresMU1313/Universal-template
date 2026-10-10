@@ -28,6 +28,8 @@ fn main() -> std::io::Result<()> {
         root.join("documents/presentations"),
         root.join("documents/extras"),
         root.join("documents/posters"),
+        root.join("documents/papers"),
+        root.join("documents/papers_draft"),
         root.join("plots")
     ];
 
