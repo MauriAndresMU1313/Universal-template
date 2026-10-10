@@ -1,0 +1,52 @@
+---
+title: "Metadata standardization"
+author: "Mauricio Morales"
+date: "`r Sys.Date()`"
+format:
+  html:
+    theme: [darkly, custom-dark.scss]
+    embed-resources: true
+    code-fold: true
+---
+
+# Libraries
+
+```{r}
+#| warning: false
+
+.packages <- c(
+  "dplyr",
+  "readxl",
+  "tidyr",
+  "magrittr",
+  "fs",
+  "visdat",
+  # Plotting
+  "MetBrewer",
+  "ggplot2",
+  "patchwork"
+)
+
+.installed_packages <- .packages %in% rownames(installed.packages())
+if (any(.installed_packages == F)) {
+  install.packages(.packages[!.installed_packages])
+}
+
+suppressPackageStartupMessages({
+  invisible(lapply(.packages, library, character.only = T))
+})
+```
+
+```{r}
+directory <- here::here()
+```
+
+# Workflow
+
+```{r}
+
+```
+
+```{r}
+sessionInfo()
+```
