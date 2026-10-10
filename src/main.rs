@@ -2,6 +2,8 @@ use std::env;
 use std::fs;
 use std::path::Path;
 
+mod quarto_templates; // Load helper function for quarto templates
+
 fn main() -> std::io::Result<()> {
     
     // Parse project name from CLI aguments
@@ -57,9 +59,10 @@ fn main() -> std::io::Result<()> {
     project_name,
     chrono::Local::now().format("%Y-%m-%d")
 );
-
+    
     fs::write(readme_path, readme_content)?;
     println!(" Created: {}/README.md", project_name);
+    quarto_templates::create_quarto_templates(root)?;
     println!("\nProject created succefully!");
     
     Ok(())
