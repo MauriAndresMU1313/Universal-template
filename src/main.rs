@@ -3,6 +3,7 @@ use std::fs;
 use std::path::Path;
 
 mod quarto_templates; // Load helper function for quarto templates
+mod paper_templates; // Optional: upload docx documents if writing a paper
 
 fn main() -> std::io::Result<()> {
     
@@ -13,6 +14,9 @@ fn main() -> std::io::Result<()> {
         println!("Usage: bio-init-dir <project-name>");
         std::process::exit(1);
     }
+
+    // Optional paper draft documents
+    let include_papers = args.iter().any(|arg| arg == "--papers");
 
     let project_name = &args[1];
     let root = Path::new(project_name);
@@ -65,6 +69,11 @@ fn main() -> std::io::Result<()> {
     fs::write(readme_path, readme_content)?;
     println!(" Created: {}/README.md", project_name);
     quarto_templates::create_quarto_templates(root)?;
+
+    if include_papers {
+    paper_templates::create_paper_templates(root)?;
+}
+    
     println!("\nProject created succefully!");
     
     Ok(())
