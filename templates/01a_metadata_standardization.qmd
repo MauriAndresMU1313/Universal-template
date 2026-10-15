@@ -38,8 +38,26 @@ suppressPackageStartupMessages({
 })
 ```
 
+# Set up
+
+```{r}
+#| include: false
+
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = FALSE,
+  fig.width = 8, # inches
+  fig.height = 8, # inches
+  cache = TRUE # Cache results to speed up subsequent renders
+)
+```
+
+# Working directory and source
+
 ```{r}
 directory <- here::here()
+
+source(file = file.path(directory, "src/codeBase.R"))
 ```
 
 # Workflow
