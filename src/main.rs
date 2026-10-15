@@ -4,6 +4,7 @@ use std::path::Path;
 
 mod quarto_templates; // Load helper function for quarto templates
 mod paper_templates; // Optional: upload docx documents if writing a paper
+mod code_base; // Add code base
 
 fn main() -> std::io::Result<()> {
     
@@ -68,10 +69,13 @@ fn main() -> std::io::Result<()> {
     
     fs::write(readme_path, readme_content)?;
     println!(" Created: {}/README.md", project_name);
+
+    code_base::create_code_base(root)?;
+
     quarto_templates::create_quarto_templates(root)?;
 
     if include_papers {
-    paper_templates::create_paper_templates(root)?;
+        paper_templates::create_paper_templates(root)?;
 }
     
     println!("\nProject created succefully!");
