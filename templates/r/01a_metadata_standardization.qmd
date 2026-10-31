@@ -1,7 +1,7 @@
 ---
 title: "Metadata standardization"
-author: "Mauricio Morales"
-date: "`r Sys.Date()`"
+author: "TO BE FILL"
+date: today
 format:
   html:
     theme: [darkly, custom-dark.scss]
