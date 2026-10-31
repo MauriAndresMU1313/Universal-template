@@ -1,5 +1,4 @@
 # Code Base
-# Author: Mauricio Morales
 
 .tiff_pdf_plot <- function(
     PLOT,
