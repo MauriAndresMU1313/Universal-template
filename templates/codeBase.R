@@ -52,12 +52,12 @@
       width = KABLE_WIDTH)
 }
 
-.date_file_name <- function(file_name, date = Sys.Date()) {
+.date_file_name <- function(FILE_NAME, DATE = Sys.Date()) {
   #' Add the date as a prefix to a file name
   #'
-  #' @param file_name Name of the file (with extension if needed)
-  #' @param date Date to use, defaults to today
+  #' @param FILE_NAME Name of the file (with extension if needed)
+  #' @param DATE Date to use, defaults to today
   #' @return String with the format `%Y_%b_%d_file_name`
   
-  paste0(format(date, "%Y_%b_%d"), "_", file_name)
+  paste0(format(DATE, "%Y_%b_%d"), "_", FILE_NAME)
 }
