@@ -1,0 +1,72 @@
+---
+title: "Input standardization"
+author: "TO BE FILL"
+date: today
+format:
+  html:
+    theme: [darkly, custom-dark.scss]
+    embed-resources: true
+    code-fold: true
+jupyter: python3
+---
+
+# Libraries
+
+```{r}
+#| warning: false
+
+.packages <- c(
+  "dplyr",
+  "readxl",
+  "tidyr",
+  "magrittr",
+  "fs",
+  "visdat",
+  "here",
+  # Plotting
+  "MetBrewer",
+  "ggplot2",
+  "patchwork"
+)
+
+.installed_packages <- .packages %in% rownames(installed.packages())
+if (any(.installed_packages == F)) {
+  install.packages(.packages[!.installed_packages])
+}
+
+suppressPackageStartupMessages({
+  invisible(lapply(.packages, library, character.only = T))
+})
+```
+
+# Set up
+
+```{r}
+#| include: false
+
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = FALSE,
+  fig.width = 8, # inches
+  fig.height = 5, # inches
+  cache = TRUE # Cache results to speed up subsequent renders
+)
+```
+
+# Working directory and source
+
+```{r}
+directory <- here::here()
+
+source(file = file.path(directory, "src/codeBase.R"))
+```
+
+# Workflow
+
+```{r}
+
+```
+
+```{r}
+sessionInfo()
+```
