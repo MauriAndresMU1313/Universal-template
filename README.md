@@ -2,8 +2,6 @@
 
 ## A universal template for Bioinformatics/Computational biology
 
-##### Author: Mauricio Morales
-
 A small Rust command-line tool that generates a predefined repository structure for bioinformatics and computational projects, **based on my typical workflow**. It also ships a second tool, `manifest`, that keeps a record of the files inside a project.
 
 > Status: draft. Built as a learning project, so expect rough edges.
@@ -150,3 +148,7 @@ The templates are embedded with `include_str!` and `include_bytes!`, so the exec
 ## License
 
 This project is licensed under the Apache License 2.0. See the [LICENSE](LICENSE) file for details.
+
+## Author
+
+Mauricio Morales
