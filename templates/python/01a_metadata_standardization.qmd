@@ -7,7 +7,6 @@ format:
     theme: [darkly, custom-dark.scss]
     embed-resources: true
     code-fold: true
-jupyter: python3
 ---
 
 # Libraries
