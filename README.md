@@ -121,19 +121,23 @@ Behavior:
 ```
 bio-init-dir/
 ├── Cargo.toml
-├── templates/                  # files embedded in the executable at compile time
-│   ├── *.qmd
-│   ├── *.docx
+├── templates/
+│   ├── 00_testing_area.qmd               # one mixed R + Python document
+│   ├── 01a_metadata_standardization.qmd
+│   ├── 01b_inputs_standardization.qmd
+│   ├── custom-dark.scss
 │   ├── code_base.R
-│   └── DECISIONS.md
+│   ├── code_base.py
+│   ├── DECISIONS.md
+│   └── 02a_abstract.docx ... 02e_methodology.docx
 └── src/
-    ├── main.rs                 # bio-init-dir
+    ├── main.rs
     ├── quarto_templates.rs
-    ├── paper_templates.rs
     ├── code_base.rs
     ├── decisions.rs
+    ├── paper_templates.rs
     └── bin/
-        └── manifest.rs         # manifest
+        └── manifest.rs
 ```
 
 The templates are embedded with `include_str!` and `include_bytes!`, so the executables work from any directory. After editing a template, rebuild (and reinstall) to update it.
