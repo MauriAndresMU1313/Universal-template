@@ -2,6 +2,7 @@
 title: "Metadata standardization"
 author: "Mauricio Morales"
 date: "`r Sys.Date()`"
+engine: knitr
 format:
   html:
     theme: [darkly, custom-dark.scss]
@@ -22,6 +23,8 @@ format:
   "fs",
   "visdat",
   "here",
+  # Ptyhon-related
+  "reticulate",
   # Plotting
   "MetBrewer",
   "ggplot2",
