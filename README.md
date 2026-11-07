@@ -143,7 +143,6 @@ The templates are embedded with `include_str!` and `include_bytes!`, so the exec
 - `documents/papers_draft/` is created even without `--papers`, because it is listed in the base directories.
 - `manifest` does not check `--output`: pointing it at an existing file overwrites that file.
 - Large files make `manifest` slow, since every file is hashed.
-- Not implemented yet: automatic `git init` and `.gitignore`, an empty `.here` file for `here::here()`, `renv` setup, and copying `custom-dark.scss` for the Quarto dark theme.
 
 ## License
 
