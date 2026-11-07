@@ -12,7 +12,7 @@ A small Rust command-line tool that generates a predefined repository structure 
 
 - a standard directory layout
 - a `README.md` for the new project (with the creation date)
-- a shared R code base (`src/code_base.R`)
+- a shared R/Python code base (`src/codeBase.R` or `src/codeBase.py`)
 - three Quarto templates in `src/01_proof_concept/`
 - a `DECISIONS.md` template to record analysis decisions
 - optionally, Word templates for a paper draft (`--papers`)
@@ -20,7 +20,7 @@ A small Rust command-line tool that generates a predefined repository structure 
 ## Requirements
 
 - Rust toolchain (the project uses `edition = "2024"`, which needs a recent Rust, 1.85 or later)
-- To use the generated templates: Quarto and R (the templates use R chunks and `here`, `renv` is planned)
+- To use the generated templates: Quarto, R and Python
 
 ## Installation
 
@@ -48,7 +48,7 @@ bio-init-dir my-project --papers
 
 The flag can go before or after the project name. Unknown options and more than one project name are rejected.
 
-**Overwrite protection:** if the target folder already exists and is not empty (or is a file), the tool prints an error and stops before creating anything.
+**Overwrite protection:** if the target folder already exists and is not empty (or is a file), the tool prints an error and **stops before creating anything**.
 
 ### Generated structure
 
@@ -109,7 +109,7 @@ Behavior:
 
 - Re-running updates size, date and checksum, and keeps your `decision` and `comment` values (rows are matched by path).
 - Rows of deleted or renamed files are dropped, together with their notes.
-- Hidden files (such as `.DS_Store`) are skipped.
+- Hidden files are skipped.
 - A changed checksum on a file with a note is the signal that the note may be outdated.
 
 ### Record decisions
