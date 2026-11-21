@@ -8,14 +8,13 @@ A small Rust command-line tool that generates a predefined repository structure 
 
 ## What it does
 
-`bio-init-dir <project-name> [--papers]` creates a new project folder with:
+`bio-init-dir <project-name>` creates a new project folder with:
 
 - a standard directory layout
 - a `README.md` for the new project (with the creation date)
 - a shared R/Python code base (`src/codeBase.R` or `src/codeBase.py`)
 - three Quarto templates in `src/01_proof_concept/`
 - a `DECISIONS.md` template to record analysis decisions
-- optionally, Word templates for a paper draft (`--papers`)
 
 ## Requirements
 
@@ -38,13 +37,11 @@ This installs two executables: `bio-init-dir` and `manifest`.
 
 ```
 bio-init-dir my-project
-bio-init-dir my-project --papers
 ```
 
 | Argument | Required | Description |
 |---|---|---|
 | `<project-name>` | yes | Name (or path) of the folder to create |
-| `--papers` | no | Also create the Word templates for a paper draft |
 
 The flag can go before or after the project name. Unknown options and more than one project name are rejected.
 
@@ -72,12 +69,7 @@ my-project/
     ├── posters/
     ├── extras/
     ├── papers/
-    └── papers_draft/            (Word templates only with --papers)
-        ├── 02a_abstract.docx
-        ├── 02b_introduction.docx
-        ├── 02c_results.docx
-        ├── 02d_discussion.docx
-        └── 02e_methodology.docx
+    └── papers_draft/
 ```
 
 ### Track files with `manifest`

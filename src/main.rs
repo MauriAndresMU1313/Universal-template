@@ -3,7 +3,6 @@ use std::fs;
 use std::path::Path;
 
 mod quarto_templates; // Load helper function for quarto templates
-mod paper_templates; // Optional: upload docx documents if writing a paper
 mod code_base; // Add code base
 mod decisions; // Add DECISIONS.md template
 
@@ -20,23 +19,19 @@ fn is_safe_target(root: &Path) -> std::io::Result<bool> {
 
 fn main() -> std::io::Result<()> {
 
-    // Parse arguments: bio-init-dir <project-name> [--papers]
+    // Parse arguments: bio-init-dir <project-name>
     let args: Vec<String> = env::args().collect();
     let mut project_name: Option<&String> = None;
-    let mut include_papers = false;
 
     for arg in &args[1..] {
         match arg.as_str() {
-            "--papers" => include_papers = true,
             option if option.starts_with("--") => {
                 eprintln!("Error: Unknown option '{}'.", option);
-                eprintln!("Usage: bio-init-dir <project-name> [--papers]");
                 std::process::exit(1);
             }
             _ => {
                 if project_name.is_some() {
                     eprintln!("Error: More than one project name given.");
-                    eprintln!("Usage: bio-init-dir <project-name> [--papers]");
                     std::process::exit(1);
                 }
                 project_name = Some(arg);
@@ -48,7 +43,6 @@ fn main() -> std::io::Result<()> {
         Some(name) => name,
         None => {
             eprintln!("Error: Please provide a project name.");
-            eprintln!("Usage: bio-init-dir <project-name> [--papers]");
             std::process::exit(1);
         }
     };
@@ -117,10 +111,6 @@ fn main() -> std::io::Result<()> {
     decisions::create_decisions_file(root)?;
 
     quarto_templates::create_quarto_templates(root)?;
-
-    if include_papers {
-        paper_templates::create_paper_templates(root)?;
-    }
 
     println!("\nProject created successfully!");
 
